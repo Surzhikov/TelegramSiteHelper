@@ -1,0 +1,138 @@
+*{
+
+font-family: 'Tahoma';
+}
+
+#chat{
+    display: block;
+    position: fixed;
+    width: 300px;
+    height: 353px;
+    background-color: #D2D2D2;
+    right: 25px;
+		bottom:10px;
+    border-radius: 4px;
+    z-index: 9999;
+}
+
+
+#chatWrapper{display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 40px;
+    background-color: #FBFCFF;
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    }
+
+#chatTextBox{
+    display: block;
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    width: 296px;
+    font-size: 10pt;
+    border: 0px;
+    border-top: 1px solid #D5DBEF;
+    box-sizing: border-box;
+    padding: 10px;
+    font-family: 'Tahoma';
+    font-weight: normal;
+    border-radius: 0 0 3px 3px;
+}
+
+#chatTextBox:focus{
+background-color:#fff;
+outline:none;
+}
+
+
+#chatInner{
+width: 100%;
+    box-sizing: border-box;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    position: relative;
+    top: 0;}
+    
+    
+    #chatMessages{
+    
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    }
+    
+   
+
+li.msg{
+    display: block;
+    position:relative;
+    margin: 5px;
+    background-color: #fff;
+    font-size: 9pt;
+    padding: 7px 5px;
+    -webkit-box-shadow: 0 1px 1px 1px #EEF0F5;
+    box-shadow: 0 1px 1px 1px #EEF0F5;
+}   
+    
+b.name{
+font-weight:600;
+display:inline-block;
+width:56%;
+text-align:left;
+font-size:8pt;
+}    
+
+b.time{
+font-weight:300;
+display:inline-block;
+text-align: right;
+width: 40%;
+color: #ccc;
+font-size: 8pt;
+}
+    
+    
+.clr1{color:#AB2FAA}
+.clr2{color:#EF4F4F}
+.clr3{color:#4F7DEF}
+.clr4{color:#1CAF1D}
+.clr5{color:#AF791C}
+
+
+
+.mKill{
+display:none;
+position:absolute;
+right:5px;
+bottom:5px;
+width:15px;
+height:15px;
+background-image:url('../images/trash.svg');
+background-size:cover;
+background-repeat:no-repeat;
+background-position:center center;
+cursor:pointer;
+}
+
+
+
+li.msg:hover .mKill{display:block}
+
+
+.mKill:hover{background-image:url('../images/trash-h.svg');}
+.mKill:active{background-image:url('../images/trash-a.svg');}
+
+
+
+
+
+
