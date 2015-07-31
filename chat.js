@@ -80,7 +80,7 @@ function appendMessage(msgTxt){
 
 
 function getMsgs(lastSendTime){
- console.log("getMsgs")
+ //console.log("getMsgs")
 var lastMId=$("#lastMId").val();
 
 	$.ajax({
@@ -93,7 +93,7 @@ var lastMId=$("#lastMId").val();
 	}).done(function (answer) {
 
  
-  console.log(answer)
+  //console.log(answer)
       
 
 		if(answer.status == 'ok') { // ЕСЛИ API возвратило status=ok
@@ -116,7 +116,7 @@ var lastMId=$("#lastMId").val();
 			setTimeout(function(){getMsgs();},1500);}
 
 	}).fail(function (jqXHR, textStatus, errorThrown) {
-		console.log(jqXHR);
+		//console.log(jqXHR);
       setTimeout(function(){getMsgs();},15000);
 	});
 
@@ -128,7 +128,7 @@ var lastMId=$("#lastMId").val();
 
 
 function sendMsgs(wsMessage){
- console.log("sendMsg");
+ //console.log("sendMsg");
     $.ajax({
       url : "sendMessage.php",
       type : "POST",
@@ -138,7 +138,7 @@ function sendMsgs(wsMessage){
       timeout : 25000
     }).done(function (answer) {
 
-					console.log(answer);
+					//console.log(answer);
 
         if (answer.status == 'ok') {
             $("#chatTextBox").val("");
@@ -149,7 +149,7 @@ function sendMsgs(wsMessage){
             alert("Возникла ошибка при отправке сообщения. Попробуйте перезагрузить страницу!");
         }
       }).fail(function (jqXHR, textStatus, errorThrown) {
-        console.log(jqXHR);
+        //console.log(jqXHR);
          
                 alert("Возникла ошибка при отправке сообщения. Попробуйте перезагрузить страницу!");
       });

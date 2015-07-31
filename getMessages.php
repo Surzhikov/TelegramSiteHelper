@@ -28,6 +28,7 @@ $sth=$db->prepare("SELECT count(*) as count FROM wsChat WHERE wsChatHash=:wsChat
 $sth->execute(array(":wsChatHash"=>$wsChatHash));
 $a=$sth->fetch();
 if($a['count']==0){
+		setcookie("wsChatHash", null, time()+(60*60*24));
 		echo json_encode(array("status"=>"error", "error"=>"bad_wsChatHash"));
 		exit();		
 }
