@@ -1,9 +1,5 @@
-*{
 
-font-family: 'Tahoma';
-}
-
-#chat{
+#telegramSiteHelper_box{
     display: block;
     position: fixed;
     width: 300px;
@@ -13,10 +9,11 @@ font-family: 'Tahoma';
 		bottom:10px;
     border-radius: 4px;
     z-index: 9999;
+		font-family: 'Tahoma';
 }
 
 
-#chatWrapper{display: block;
+#telegramSiteHelper_chatWrapper{display: block;
     position: absolute;
     top: 2px;
     left: 2px;
@@ -27,7 +24,7 @@ font-family: 'Tahoma';
     overflow: hidden;
     }
 
-#chatTextBox{
+#telegramSiteHelper_chatTextBox{
     display: block;
     position: absolute;
     bottom: 2px;
@@ -43,13 +40,13 @@ font-family: 'Tahoma';
     border-radius: 0 0 3px 3px;
 }
 
-#chatTextBox:focus{
+#telegramSiteHelper_chatTextBox:focus{
 background-color:#fff;
 outline:none;
 }
 
 
-#chatInner{
+#telegramSiteHelper_chatInner{
 width: 100%;
     box-sizing: border-box;
     height: auto;
@@ -60,7 +57,7 @@ width: 100%;
     top: 0;}
     
     
-    #chatMessages{
+    #telegramSiteHelper_chatMessages{
     
     display: block;
     position: relative;
@@ -72,7 +69,7 @@ width: 100%;
     
    
 
-li.msg{
+#telegramSiteHelper_chatMessages li.msg{
     display: block;
     position:relative;
     margin: 5px;
@@ -83,7 +80,7 @@ li.msg{
     box-shadow: 0 1px 1px 1px #EEF0F5;
 }   
     
-b.name{
+#telegramSiteHelper_chatMessages b.name{
 font-weight:600;
 display:inline-block;
 width:56%;
@@ -91,7 +88,7 @@ text-align:left;
 font-size:8pt;
 }    
 
-b.time{
+#telegramSiteHelper_chatMessages b.time{
 font-weight:300;
 display:inline-block;
 text-align: right;
@@ -101,15 +98,15 @@ font-size: 8pt;
 }
     
     
-.clr1{color:#AB2FAA}
-.clr2{color:#EF4F4F}
-.clr3{color:#4F7DEF}
-.clr4{color:#1CAF1D}
-.clr5{color:#AF791C}
+#telegramSiteHelper_chatMessages .clr1{color:#AB2FAA}
+#telegramSiteHelper_chatMessages .clr2{color:#EF4F4F}
+#telegramSiteHelper_chatMessages .clr3{color:#4F7DEF}
+#telegramSiteHelper_chatMessages .clr4{color:#1CAF1D}
+#telegramSiteHelper_chatMessages .clr5{color:#AF791C}
 
 
 
-.mKill{
+#telegramSiteHelper_chatMessages .mKill{
 display:none;
 position:absolute;
 right:5px;
@@ -125,11 +122,11 @@ cursor:pointer;
 
 
 
-li.msg:hover .mKill{display:block}
+#telegramSiteHelper_chatMessages li.msg:hover .mKill{display:block}
 
 
-.mKill:hover{background-image:url('../images/trash-h.svg');}
-.mKill:active{background-image:url('../images/trash-a.svg');}
+#telegramSiteHelper_chatMessages .mKill:hover{background-image:url('../images/trash-h.svg');}
+#telegramSiteHelper_chatMessages .mKill:active{background-image:url('../images/trash-a.svg');}
 
 
 
