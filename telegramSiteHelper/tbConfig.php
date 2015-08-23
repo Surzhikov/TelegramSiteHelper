@@ -24,8 +24,8 @@ $dbUse="sqlite";
 // Если вы используете MySQL - укажите ниже хост, имя базы, логин и пароль
 // If you use MySQL, write here host, dbname, login, password
 $mysqlHost="localhost";
-$mysqlDB="tbc";
-$mysqlLogin="root";
+$mysqlDB="";
+$mysqlLogin="";
 $mysqlPassword="";
 
 
