@@ -12,7 +12,26 @@ if(!isset($params[$v])){echo  json_encode(array("status"=>"error", "error"=>"NEE
 require_once("tbDatabase.php");
 $db=tbDatabase();
 
-if($params['tbChatHash']==null){
+	
+	
+if($params['tbChatHash']!=null){
+
+		$sth=$db->prepare("SELECT tbChats.chId, tbManagers.mBotChatId, tbManagers.mName FROM tbChats LEFT JOIN tbManagers ON tbManagers.mId=tbChats.chManager  WHERE tbChats.chHash=:chHash");
+		$sth->execute(array(":chHash"=>$params['tbChatHash']));
+		$answer=$sth->fetch();
+		$chatId=$answer['mBotChatId'];
+		$chId=$answer['chId'];
+		$managerName=$answer['mName'];
+		$chHash=$params['tbChatHash'];
+		
+		if($chatId==null){
+		
+		
+		}
+		
+}
+
+if($params['tbChatHash']==null OR $chatId==null){
 
 	$sth=$db->prepare("SELECT mId, mName, mBotChatId FROM tbManagers WHERE mStatus=:mStatus");
 	$sth->execute(array(":mStatus"=>1));
@@ -31,22 +50,14 @@ if($params['tbChatHash']==null){
 	}else{
 			echo json_encode(array("status"=>"error", "error"=>"NO_MANAGERS")); exit();
 	}
-	
-	$chHash=uniqid("chat_");
+	if($params['tbChatHash']==null){
+			$chHash=uniqid("chat_");
+	}else{
+			$chHash=$params['tbChatHash'];
+	}
 	$sth=$db->prepare("INSERT INTO tbChats (chHash, chManager) VALUES (:chHash, :chManager)");
 	$sth->execute(array(":chHash"=>$chHash, ":chManager"=>$managerId));
 	$chId=$db->lastInsertId();
-	
-	
-}else{
-
-		$sth=$db->prepare("SELECT tbChats.chId, tbManagers.mBotChatId, tbManagers.mName FROM tbChats LEFT JOIN tbManagers ON tbManagers.mId=tbChats.chManager  WHERE tbChats.chHash=:chHash");
-		$sth->execute(array(":chHash"=>$params['tbChatHash']));
-		$answer=$sth->fetch();
-		$chatId=$answer['mBotChatId'];
-		$chId=$answer['chId'];
-		$managerName=$answer['mName'];
-		$chHash=$params['tbChatHash'];
 }
 
 
