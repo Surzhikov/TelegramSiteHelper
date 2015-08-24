@@ -1,7 +1,10 @@
 # TelegramSiteHelper
 Telegram Bot and chat to create WebSite Helper (PHP+JS(JQuery2)+HTML+CSS)<br>
 Телеграм бот и чат для создания Чата-помощника на сайт<br>
-
+<br>
+If you try everything, but it is not working - you can write me (<a href="https://telegram.me/surzhikov">https://telegram.me/surzhikov</a>).<br>
+Если вы все перепробывали, но все-равно ничего не работает, можете написать мне в телеграм, помогу чем смогу (<a href="https://telegram.me/surzhikov">https://telegram.me/surzhikov</a>).<br>
+<br>
 Scheme (Схема):<br>
 <img src="https://habrastorage.org/files/5fa/cc9/048/5facc9048483406ab0eba3820cce44fa.png"><br>
 
