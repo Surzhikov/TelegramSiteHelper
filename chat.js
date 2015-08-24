@@ -10,15 +10,16 @@ $(function() {
     });
 
 
-    bindChatScroll(function() {
-        refreshChatScroll();
-    })
+    //bindChatScroll(function() {
+   //     refreshChatScroll();
+   // })
 
 
     StartCHAT();
 });
 
 
+var startByClick=0;
 
 
 function StartCHAT() {
@@ -26,7 +27,9 @@ function StartCHAT() {
     var tbChatHash = $.cookie("tbChatHash");
     if (tbChatHash !== null) {
         getMsgs();
-    }
+    } else {
+			startByClick=1;
+		}
 
 }
 
@@ -35,16 +38,18 @@ function StartCHAT() {
 
 function getMsgs() {
 
+
     var tbChatHash = $.cookie("tbChatHash");
     var lastMessageId = $("#telegramSiteHelper_lastMId").val();
     var params = {};
     params['lastMessageId'] = lastMessageId;
     params['tbChatHash'] = tbChatHash;
 
-
+		console.log("getMsgs "+tbChatHash);
+	
 
     $.ajax({
-        url: "telegramSiteHelper/tbGetMessages.php",
+        url: "../telegramSiteHelper/tbGetMessages.php",
         type: "POST",
         dataType: "JSON",
         data: params,
@@ -52,7 +57,8 @@ function getMsgs() {
         timeout: 59000
     }).done(function(answer) {
 
-
+	console.log(answer);
+	
         if (answer.status == 'ok') {
 
             if (answer.msgs) {
@@ -65,13 +71,12 @@ function getMsgs() {
                         $("#telegramSiteHelper_lastMId").val(msg.msgId)
                         appendMessage(m);
                     });
-
-                    getMsgs();
-                } else {
-                    $.cookie("startByClick", "1");
+										refreshChatScroll();
+                    
                 }
             }
-
+						
+						getMsgs();
 
 
 
@@ -104,7 +109,7 @@ function sendMsgs(tbMessage) {
 
 
     $.ajax({
-        url: "telegramSiteHelper/tbSendMessage.php",
+        url: "../telegramSiteHelper/tbSendMessage.php",
         type: "POST",
         dataType: "JSON",
         data: params,
@@ -112,9 +117,9 @@ function sendMsgs(tbMessage) {
         timeout: 25000
     }).done(function(answer) {
 
-
+		console.log(answer);
         if (answer.status == 'ok') {
-
+		
             $("#telegramSiteHelper_chatTextBox").val("");
             $("#telegramSiteHelper_lastMId").val(answer.lastMessageId);
             var tbChatHash = $.cookie("tbChatHash")
@@ -124,12 +129,13 @@ function sendMsgs(tbMessage) {
                 getMsgs();
             }
 
-            var startByClick = $.cookie("startByClick");
+            
+						/*var startByClick = $.cookie("startByClick");
             if (startByClick = 1) {
                 $.cookie("startByClick", 0);
                 getMsgs();
             }
-
+						*/
 
             $.cookie("managerName", answer.managerName);
 
@@ -140,7 +146,7 @@ function sendMsgs(tbMessage) {
             msgObj.msgTime = answer.lastMessageDate;
             var m = makeMsg(msgObj);
             appendMessage(m);
-
+						refreshChatScroll();
         } else if (answer.status == 'error') { // ЕСЛИ API возвратило status=error обрабатываем ошибки.
 
 
@@ -148,44 +154,32 @@ function sendMsgs(tbMessage) {
         }
     }).fail(function(jqXHR, textStatus, errorThrown) {
 
-
-        alert("Возникла ошибка при отправке сообщения. Попробуйте перезагрузить страницу!!");
+console.log(jqXHR);
+        alert("Возникла ошибка при отправке сообщения. Попробуйте перезагрузить страницу!! "+ textStatus);
     });
 
     //####
 }
 
 
-
-
-chatScroll = "";
-
-function bindChatScroll(callback) {
-
-    chatScroll = new IScroll('#telegramSiteHelper_chatWrapper', {
-        scrollX: false,
-        scrollY: true,
-        tap: true,
-        mouseWheel: true
-    });
-    if (callback) {
-        callback();
-    }
-}
-
+ 
 
 
 function refreshChatScroll() {
 
-    chatScroll.refresh();
-
+ 
     var h = $("#telegramSiteHelper_chatMessages").height();
+		
+		console.log(h);
+		
     if (h > 300) {
         var a = 300 - h;
     } else {
         a = 1;
     }
-    chatScroll.scrollTo(0, a);
+		
+		console.log(a);
+   $("#telegramSiteHelper_chatWrapper").animate({ scrollTop: h }, "2");
 }
 
 
@@ -218,9 +212,9 @@ function makeMsg(msgObj) {
 
 
 function appendMessage(msgTxt) {
-
+		$("#telegramSiteHelper_firstChatMsg").hide();
     $("#telegramSiteHelper_chatMessages").append(msgTxt);
-    refreshChatScroll();
+
 }
 
 

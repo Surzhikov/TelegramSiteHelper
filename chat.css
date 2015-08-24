@@ -1,41 +1,38 @@
 
-#telegramSiteHelper_box{
-    display: block;
-    position: fixed;
-    width: 300px;
-    height: 353px;
-    background-color: #D2D2D2;
-    right: 25px;
-		bottom:10px;
+#telegramSiteHelper_box {
+		display: block;
+    position: relative;
+    width: 100%;
+    background-color: #F7E8C4;
     border-radius: 4px;
     z-index: 9999;
-		font-family: 'Tahoma';
+    padding: 3px;
+    box-sizing: border-box;	
 }
 
 
-#telegramSiteHelper_chatWrapper{display: block;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    right: 2px;
-    bottom: 40px;
-    background-color: #FBFCFF;
-    border-radius: 3px 3px 0 0;
-    overflow: hidden;
-    }
-
-#telegramSiteHelper_chatTextBox{
+#telegramSiteHelper_chatWrapper {
     display: block;
-    position: absolute;
-    bottom: 2px;
-    left: 2px;
-    width: 296px;
+    position: relative;
+    margin: 0px 0 3px 0;
+    background-color: #FEFBF5;
+    border-radius: 3px 3px 0 0;
+    overflow-y: hidden;
+    height: 261px;
+}
+
+#telegramSiteHelper_chatWrapper:hover{
+    overflow-y: scroll;
+}
+
+#telegramSiteHelper_chatTextBox {
+    display: block;
+    position: relative;
+    width: 100%;
     font-size: 10pt;
     border: 0px;
-    border-top: 1px solid #D5DBEF;
     box-sizing: border-box;
     padding: 10px;
-    font-family: 'Tahoma';
     font-weight: normal;
     border-radius: 0 0 3px 3px;
 }
@@ -78,6 +75,7 @@ width: 100%;
     padding: 7px 5px;
     -webkit-box-shadow: 0 1px 1px 1px #EEF0F5;
     box-shadow: 0 1px 1px 1px #EEF0F5;
+		text-align:left;
 }   
     
 #telegramSiteHelper_chatMessages b.name{
@@ -98,38 +96,17 @@ font-size: 8pt;
 }
     
     
-#telegramSiteHelper_chatMessages .clr1{color:#AB2FAA}
+#telegramSiteHelper_chatMessages .clr1{color:#1C3FA7}
 #telegramSiteHelper_chatMessages .clr2{color:#EF4F4F}
-#telegramSiteHelper_chatMessages .clr3{color:#4F7DEF}
-#telegramSiteHelper_chatMessages .clr4{color:#1CAF1D}
-#telegramSiteHelper_chatMessages .clr5{color:#AF791C}
+ 
+ 
 
-
-
-#telegramSiteHelper_chatMessages .mKill{
-display:none;
-position:absolute;
-right:5px;
-bottom:5px;
-width:15px;
-height:15px;
-background-image:url('../images/trash.svg');
-background-size:cover;
-background-repeat:no-repeat;
-background-position:center center;
-cursor:pointer;
+#telegramSiteHelper_firstChatMsg {
+    text-align: center;
+    padding: 60px 10px;
+    font-size: 20pt;
+    color: rgba(0,0,0,0.4);
+    letter-spacing: -0.5pt;
 }
-
-
-
-#telegramSiteHelper_chatMessages li.msg:hover .mKill{display:block}
-
-
-#telegramSiteHelper_chatMessages .mKill:hover{background-image:url('../images/trash-h.svg');}
-#telegramSiteHelper_chatMessages .mKill:active{background-image:url('../images/trash-a.svg');}
-
-
-
-
 
 
