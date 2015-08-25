@@ -41,6 +41,13 @@ if($fl){
 		/*  Server is working now  */
 		while(true){
 				
+				if(is_file($tbRootDir."/stopserver")){
+						unlink($tbRootDir."/stopserver");
+						echo"\r\nСервер остановлен по команде stopserver!";
+						fwrite($fLog, date("d.m.Y H:i:s")." — Сервер остановлен по команде stopserver!\r\n");
+						exit();
+				}
+				
 				
 				
 				// В обычном файле мы будем хранить ID последнего обновления
