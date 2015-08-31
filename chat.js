@@ -76,8 +76,9 @@ function getMsgs() {
                 }
             }
 						
-						getMsgs();
-
+            setTimeout(function () {
+                getMsgs();
+            }, 1500);
 
 
             return (true);
