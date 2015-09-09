@@ -54,7 +54,7 @@ function getMsgs() {
         dataType: "JSON",
         data: params,
         async: true,
-        timeout: 59000
+        timeout: 61000
     }).done(function(answer) {
 
 	console.log(answer);
@@ -76,22 +76,25 @@ function getMsgs() {
                 }
             }
 						
+                        console.log("OKEY "+answer.status);
 						getMsgs();
 
 
 
             return (true);
         } else if (answer.status == 'error') { // ЕСЛИ API возвратило status=error обрабатываем ошибки.
-
+            console.log("FAIL "+answer.status);
             setTimeout(function() {
                 getMsgs();
             }, 1500);
         }
 
     }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.log("FAIL "+textStatus);
+        console.log(jqXHR)
         setTimeout(function() {
             getMsgs();
-        }, 15000);
+        }, 1500);
     });
 
 
@@ -170,15 +173,13 @@ function refreshChatScroll() {
  
     var h = $("#telegramSiteHelper_chatMessages").height();
 		
-		console.log(h);
-		
     if (h > 300) {
         var a = 300 - h;
     } else {
         a = 1;
     }
 		
-		console.log(a);
+ 
    $("#telegramSiteHelper_chatWrapper").animate({ scrollTop: h }, "2");
 }
 

@@ -1,8 +1,7 @@
 <?php
 
 set_time_limit(60);
-error_reporting(E_ALL); //Выводим все ошибки и предупреждения
-set_time_limit(0);	//Время выполнения скрипта не ограничено
+error_reporting(0); //НЕ Выводим все ошибки и предупреждения
 ob_implicit_flush();	//Включаем вывод без буферизации 
 ignore_user_abort(true); // Игнорируем abort со стороны пользователя
 
@@ -45,32 +44,35 @@ if($params['lastMessageId']==0){
 }else{
 
 		while(true){
-		$file=$tbRootDir."/chatUpdates/".$params['tbChatHash'].".manager";
-		if(is_file($file)){
+			$file=$tbRootDir."/chatUpdates/".$params['tbChatHash'].".manager";
+			if(is_file($file)){
 
-			require('tbDatabase.php');
-			$db=tbDatabase();
-			
-			$sth=$db->prepare("SELECT chId FROM tbChats WHERE chHash=:chHash");
-			$sth->execute(array(":chHash"=>$params['tbChatHash']));
-			$a=$sth->fetch();
-			$chId=$a['chId'];
+				require('tbDatabase.php');
+				$db=tbDatabase();
+				
+				$sth=$db->prepare("SELECT chId FROM tbChats WHERE chHash=:chHash");
+				$sth->execute(array(":chHash"=>$params['tbChatHash']));
+				$a=$sth->fetch();
+				$chId=$a['chId'];
 
 
-			$sth=$db->prepare("SELECT  msgId, msgTime, msgFrom, msgText FROM tbMessages WHERE msgChatId=:msgChatId AND msgFrom=:msgFrom AND msgId>:msgId ORDER BY msgTime");
-			$sth->execute(array(":msgChatId"=>$chId, ":msgFrom"=>"m",":msgId"=>$params['lastMessageId']));
-			$msgs=array();
-			while($answer=$sth->fetch()){
-					$answer['msgTime']=date("H:i:s",$answer['msgTime']);
-					$msgs[]=$answer;
+				$sth=$db->prepare("SELECT msgId, msgTime, msgFrom, msgText FROM tbMessages WHERE msgChatId=:msgChatId AND msgFrom=:msgFrom AND msgId>:msgId ORDER BY msgTime");
+				$sth->execute(array(":msgChatId"=>$chId, ":msgFrom"=>"m",":msgId"=>$params['lastMessageId']));
+				$msgs=array();
+				while($answer=$sth->fetch()){
+						$answer['msgTime']=date("H:i:s",$answer['msgTime']);
+						$msgs[]=$answer;
+				}
+
+				if(is_file($file)){
+					unlink($file);
+				}
+				
+				echo json_encode(array("status"=>"ok","msgs"=>$msgs));
+				exit();
 			}
 
-		  unlink($file);
-			echo json_encode(array("status"=>"ok","msgs"=>$msgs));
-			exit();
-		}
-
-		usleep(5000);
+			usleep(5000);
 		}
 
 }

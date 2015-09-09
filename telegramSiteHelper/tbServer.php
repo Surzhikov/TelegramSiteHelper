@@ -2,7 +2,7 @@
 //>> sudo crontab -e
 //* * * * * /usr/bin/php5 /var/www/***/server.php
 
-set_time_limit(0);
+
 error_reporting(E_ALL); //Выводим все ошибки и предупреждения
 set_time_limit(0);	//Время выполнения скрипта не ограничено
 ob_implicit_flush();	//Включаем вывод без буферизации 
