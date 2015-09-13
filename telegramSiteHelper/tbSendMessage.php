@@ -65,7 +65,7 @@ require_once("tbClass.php");
 		
 // Новый экземпляр телеграм бота
 $tg = new telegramBot($tbAPIToken);
-$tg->sendMessage($chatId, $params['tbMessage'] ."\r\n\r\nДля ответа перейти в чат — /chat_".$chId."\r\nПосмотреть историю — /history_".$chId."");
+$tg->sendMessage($chatId, $params['tbMessage'] ."\r\n\r\n".$_localization["forAnswerGoToChat"]." — /chat_".$chId."\r\n".$_localization["viewHistory"]." — /history_".$chId);
 
 
 $sth=$db->prepare("INSERT INTO tbMessages (msgChatId, msgFrom, msgTime, msgText) VALUES (:msgChatId, :msgFrom, :msgTime, :msgText)");

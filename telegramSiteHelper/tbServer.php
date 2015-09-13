@@ -43,8 +43,8 @@ if($fl){
 				
 				if(is_file($tbRootDir."/stopserver")){
 						unlink($tbRootDir."/stopserver");
-						echo"\r\nСервер остановлен по команде stopserver!";
-						fwrite($fLog, date("d.m.Y H:i:s")." — Сервер остановлен по команде stopserver!\r\n");
+						echo"\r\n".$_localization["serverStoppedByCommand"];
+						fwrite($fLog, date("d.m.Y H:i:s")." — ".$_localization["serverStoppedByCommand"]."\r\n");
 						exit();
 				}
 				
@@ -76,7 +76,7 @@ if($fl){
 						// Отправляешь боту команду /reboot и сервер останавливается.
 						// В рабочей версии - нужно закоментить этот IF(){}
 						if($message=="/reboot"){
-										$tg->sendMessage($chatId, 'Сервер будет перезапущен в течение минуты!');
+										$tg->sendMessage($chatId, $_localization["serverRestart"]);
 										file_put_contents($fileOfLastUpdate,$updateId);
 										exit();
 						}
@@ -101,11 +101,11 @@ if($fl){
 										
 										$sth=$db->prepare("INSERT INTO tbManagers (mName, mBotChatId, mSiteChatId, mStatus) VALUES (:mName, :mBotChatId, :mSiteChatId, :mStatus);");
 										$sth->execute(array(":mName"=>$managerName, ":mBotChatId"=>$chatId, ":mSiteChatId"=>null, ":mStatus"=>1));
-										$tg->sendMessage($chatId, 'Спасибо! Вы авторизованы! Теперь Вы будете получать сообщения от пользователей в этот чат.');
+										$tg->sendMessage($chatId, $_localization["authOk"]);
 																				
 								}else{
 										
-										$tg->sendMessage($chatId, 'Необходимо ввести пароль для авторизации..');	
+										$tg->sendMessage($chatId, $_localization["pleaseEnterManagerPassword"]);	
 										
 								}
 						
@@ -117,19 +117,19 @@ if($fl){
 								
 										$sth=$db->prepare("UPDATE tbManagers SET mStatus=:mStatus, mSiteChatId=:mSiteChatId WHERE mBotChatId=:mBotChatId");
 										$sth->execute(array(":mStatus"=>0,":mSiteChatId"=>null, ":mBotChatId"=>$chatId));
-										$tg->sendMessage($chatId, "Теперь Вы не будете получать сообщения от пользователей.\r\n Чтобы вернуться в онлайн введите команду /online");	
+										$tg->sendMessage($chatId, $_localization["goingOffline"]);	
 									
 								}elseif($message=="/online"){
 									
 										$sth=$db->prepare("UPDATE tbManagers SET mStatus=:mStatus WHERE mBotChatId=:mBotChatId");
 										$sth->execute(array(":mStatus"=>1, ":mBotChatId"=>$chatId));
-										$tg->sendMessage($chatId, "Вы снова будете получать сообщения от пользователей!");	
+										$tg->sendMessage($chatId, $_localization["goingOnline"] );	
 									
 								}elseif($message=="/exit"){
 									
 										$sth=$db->prepare("DELETE FROM tbManagers WHERE mBotChatId=:mBotChatId;");
 										$sth->execute(array(":mBotChatId"=>$chatId));
-										$tg->sendMessage($chatId, "Вы вышли из системы. Для входа необходимо ввести пароль.");	
+										$tg->sendMessage($chatId, $_localization["youQuit"]);	
 									
 								}elseif(mb_substr($message,0,6)=="/chat_"){
 										
@@ -142,9 +142,9 @@ if($fl){
 										if($answer['count']!=0){
 												$sth=$db->prepare("UPDATE tbManagers SET mSiteChatId=:mSiteChatId WHERE mBotChatId=:mBotChatId");
 												$sth->execute(array(":mSiteChatId"=>$chatNum, ":mBotChatId"=>$chatId));
-												$tg->sendMessage($chatId, "Теперь все ваши сообщения направляются в чат ".$chatNum." (/chat_".$chatNum.")");	
+												$tg->sendMessage($chatId, $_localization["allMessagesAreGoingToChat"]." ".$chatNum." (/chat_".$chatNum.")");	
 										}else{
-												$tg->sendMessage($chatId, "Чат ".$chatNum." недосутпен!");	
+												$tg->sendMessage($chatId, $_localization["chat"]." ".$chatNum." ".$_localization["notAvailible"]);	
 										}
 										
 										
@@ -162,13 +162,13 @@ if($fl){
 												$sth->execute(array(":msgChatId"=>$chatNum));
 												$dialog="";
 												while($a=$sth->fetch()){
-												if($a['msgFrom']=="m"){$from="Менеджер";}else{$from="Клиент";}
+												if($a['msgFrom']=="m"){$from=$_localization["manager"];}else{$from=$_localization["client"];}
 												$dialog.="— ".$from." "."(".date("d.m.Y H:i:s",$a['msgTime']).")\r\n".$a['msgText']."\r\n\r\n";
 												}
-												$tg->sendMessage($chatId, "Полная переписка в чате ".$chatNum." (/chat_".$chatNum.")\r\n \r\n".$dialog."\r\n\r\n Для перехода в этот чат, введите /chat_".$chatNum);
+												$tg->sendMessage($chatId, $_localization["fullHistory"]." ".$chatNum." (/chat_".$chatNum.")\r\n \r\n".$dialog."\r\n\r\n ".$_localization["goToOtherChat"]." /chat_".$chatNum);
 												
 										}else{
-												$tg->sendMessage($chatId, "Чат ".$chatNum." ведет другой менеджер!");	
+												$tg->sendMessage($chatId, $chatNum." - ".$_localization["otherManagersChat"]);	
 										}
 								}else{
 									
@@ -191,7 +191,7 @@ if($fl){
 
 											
 										}else{
-												$tg->sendMessage($chatId, "Чтобы отправить сообщение сперва надо выбрать чат! ");	
+												$tg->sendMessage($chatId, $_localization["pleaseSelectChatFirst"]);	
 										}
 								}
 						
@@ -222,8 +222,8 @@ if($fl){
 		}
 		/*  End  */
 }else{
-	fwrite($fLog," Error! Server is already working. Stopped!\r\n");
-	echo"Error! Server is already working. Stopped";
+	fwrite($fLog," ".$_localization["serverAlreadyRunning"]." \r\n");
+	echo $_localization["serverAlreadyRunning"];
 	exit();
 }
 ?>

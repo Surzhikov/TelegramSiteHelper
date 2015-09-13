@@ -3,7 +3,9 @@
 
 // Корневая директория для TelegramSiteHelper
 // Root dir for TelegramSiteHelper
-$tbRootDir="/var/www/telegramsitehelper.local/telegramSiteHelper";
+// IN LINUX: something like this: /var/www/sitename/telegramSiteHelper
+// IN Windows (XAMPP, OpenServer, etc) C:/xampp/mysite/telegramSiteHelper
+$tbRootDir="/var/www/mysite/telegramSiteHelper";
 
 // Пароль для авторизации менеджера через телеграм бота
 // Password for manager auth (in Telegram bot), you must write some non-so-easy
@@ -13,6 +15,12 @@ $tbManagerPassword="123456";
 // API Token, you can get it from user @BotFather (in Telegram App)
 $tbAPIToken="";
 
+// Название языкового файла (в папке /localization)
+// Name of localization file (you can find it in /localization folder)
+$tbLanguageFile="en.php";
+
+//Для использования Русского языка раскомментируйте следующие строки:
+//$tbLanguageFile="ru.php"; 
 
 // Тип базы данных: «sqlite» или «mysql»
 // Database type: «sqlite» or «mysql»
@@ -41,6 +49,8 @@ if(!is_dir($tbRootDir."/chatUpdates")){
 }
 
 
+
+require_once($tbRootDir."/localization/".$tbLanguageFile);
 
 
 
