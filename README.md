@@ -3,6 +3,7 @@ Telegram Bot and chat to create WebSite Helper (PHP+JS(JQuery2)+HTML+CSS)<br>
 Телеграм бот и чат для создания Чата-помощника на сайт<br>
 
 [How to install and setup (english)](https://github.com/Surzhikov/TelegramSiteHelper/wiki/HOW-TO-INSTALL-(English))
+<br>
 [Как установить и настроить (по-русски)](https://github.com/Surzhikov/TelegramSiteHelper/wiki/%D0%9A%D0%90%D0%9A-%D0%A3%D0%A1%D0%A2%D0%90%D0%9D%D0%9E%D0%92%D0%98%D0%A2%D0%AC)
 
 
