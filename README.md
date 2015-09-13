@@ -1,8 +1,11 @@
-# TelegramSiteHelper
-Telegram Bot and chat to create WebSite Helper (PHP+JS(JQuery2)+HTML+CSS)<br>
+-# TelegramSiteHelper
+-Telegram Bot and chat to create WebSite Helper (PHP+JS(JQuery2)+HTML+CSS)<br>
+-Телеграм бот и чат для создания Чата-помощника на сайт<br>
+
 <br>
 If you try everything, but it is not working - you can write me (<a href="https://telegram.me/surzhikov">https://telegram.me/surzhikov</a>).<br>
 <br>
+
 The general scheme of ideas:<br>
 <img src="https://habrastorage.org/files/5fa/cc9/048/5facc9048483406ab0eba3820cce44fa.png"><br>
 
@@ -60,24 +63,12 @@ You must've Telegram Account. If you don't have make one using <a href="https://
 * Work through webhook 
 
 Reference:
-http://habrahabr.ru/post/264035/
-	
-	
-	
--# TelegramSiteHelper
--Telegram Bot and chat to create WebSite Helper (PHP+JS(JQuery2)+HTML+CSS)<br>
--Телеграм бот и чат для создания Чата-помощника на сайт<br>
--<br>
+http://habrahabr.ru/post/264035/ (language: russian)
+
+
 -If you try everything, but it is not working - you can write me (<a href="https://telegram.me/surzhikov">https://telegram.me/surzhikov</a>).<br>
 -Если вы все перепробывали, но все-равно ничего не работает, можете написать мне в телеграм, помогу чем смогу (<a href="https://telegram.me/surzhikov">https://telegram.me/surzhikov</a>).<br>
 -<br>
--Scheme (Схема):<br>
--<img src="https://habrastorage.org/files/5fa/cc9/048/5facc9048483406ab0eba3820cce44fa.png"><br>
--
--Screenshot (скриншот):<br>
--<img src="https://habrastorage.org/files/cbf/50e/458/cbf50e45825a48ce92b8eac34ba7d875.png"><br>
--
-
 
 -<h1>English manual</h1>
 -1) Create new bot:<br>
