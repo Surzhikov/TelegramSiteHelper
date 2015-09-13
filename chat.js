@@ -9,12 +9,6 @@ $(function() {
         }
     });
 
-
-    //bindChatScroll(function() {
-   //     refreshChatScroll();
-   // })
-
-
     StartCHAT();
 });
 
@@ -149,16 +143,19 @@ function sendMsgs(tbMessage) {
             msgObj.msgTime = answer.lastMessageDate;
             var m = makeMsg(msgObj);
             appendMessage(m);
-						refreshChatScroll();
-        } else if (answer.status == 'error') { // ЕСЛИ API возвратило status=error обрабатываем ошибки.
+			refreshChatScroll();
+        } else if (answer.status == 'error') { 
 
-
-            alert("Возникла ошибка при отправке сообщения. Попробуйте перезагрузить страницу!");
+        if(answer.error=="NO_MANAGERS"){
+            alert("No availible managers! Sorry...");
+        }else{
+            alert("Error during send message. Try again after page refresh!");
+        }
         }
     }).fail(function(jqXHR, textStatus, errorThrown) {
 
 console.log(jqXHR);
-        alert("Возникла ошибка при отправке сообщения. Попробуйте перезагрузить страницу!! "+ textStatus);
+        alert("Error during send message. Try again after page refresh! "+ textStatus);
     });
 
     //####
