@@ -3,3 +3,4 @@ telegramSiteHelper/telegram.db-wal
 telegramSiteHelper/telegram.db
 telegramSiteHelper/telegram.db-shm
 telegramSiteHelper/running
+telegramSiteHelper/lastUpdateId
