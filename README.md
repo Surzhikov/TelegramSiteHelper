@@ -3,7 +3,6 @@ Telegram Bot and chat to create WebSite Helper (PHP+JS(JQuery2)+HTML+CSS)<br>
 Телеграм бот и чат для создания Чата-помощника на сайт<br>
 
 [How to install and setup (english)](https://github.com/Surzhikov/TelegramSiteHelper/wiki/HOW-TO-INSTALL-(English))
-
 [Как установить и настроить (по-русски)](https://github.com/Surzhikov/TelegramSiteHelper/wiki/%D0%9A%D0%90%D0%9A-%D0%A3%D0%A1%D0%A2%D0%90%D0%9D%D0%9E%D0%92%D0%98%D0%A2%D0%AC)
 
 
@@ -11,12 +10,12 @@ The general scheme of ideas:<br>
 <img src="https://habrastorage.org/files/5fa/cc9/048/5facc9048483406ab0eba3820cce44fa.png"><br>
 
 That's how it happens: <br>
-1. Online users write to chat
-2. Post it flies on your server
-3. From there Telegram-bot sends it to the correct manager
-4. The manager responds by Telegram
-5. Bot sends a message back to chat
-
+1. Online users write to chat <br>
+2. Post it flies on your server <br>
+3. From there Telegram-bot sends it to the correct manager <br>
+4. The manager responds by Telegram <br>
+5. Bot sends a message back to chat <br>
+ <br>
 ## Screenshot:<br>
 <img src="https://habrastorage.org/files/cbf/50e/458/cbf50e45825a48ce92b8eac34ba7d875.png"><br>
 
