@@ -13,13 +13,13 @@ That's how it happens: <br>
 4. The manager responds by Telegram
 5. Bot sends a message back to chat_na_sayte
 
-Screenshot:<br>
+## Screenshot:<br>
 <img src="https://habrastorage.org/files/cbf/50e/458/cbf50e45825a48ce92b8eac34ba7d875.png"><br>
 
-Requirement:<br>
+## Requirement:<br>
 You must've Telegram Account. If you don't have make one using <a href="https://web.telegram.org">https://web.telegram.org/</a>).
 
-Todo:<br>
+## Todo:<br>
 1. Download or clone this repo
 2. Create a new bot. Add user <a href="http://telegram.me/botfather">@BotFather</a> and follow this step to  <a href="https://core.telegram.org/bots#create-a-new-bot">create a new bot</a><br>
 <img src="https://habrastorage.org/files/6de/a35/0f7/6dea350f710b4afe9c03f94702aecf49.png"><br>
@@ -29,35 +29,35 @@ Todo:<br>
 5. Try!<br>
 6. Usage:<br>
 <img src="https://habrastorage.org/files/cbf/50e/458/cbf50e45825a48ce92b8eac34ba7d875.png"><br>
-	6.1) Add your bot to your contact list<br>
-	6.2) Enter your manager password<br>
-	6.3) Use command «/offline», «/online», «/exit»<br>
+* Add your bot to your contact list<br>
+* Enter your manager password<br>
+* Use command «/offline», «/online», «/exit»<br>
 
-Minuses: <br>
-1. Chat Who made "in haste" to start soon in the project. There are many loopholes, by which for example can be written in another chat room and peek's correspondence.
-2. Now, these problems do not disturb me, because chatting assistant site have been made to transfer important and sensitive information.
-3. When a manager and a lot of customers - can be confused whom to answer.
-4. ... I supplement of the comments
+## Minuses: <br>
+* Chat Who made "in haste" to start soon in the project. There are many loopholes, by which for example can be written in another chat room and peek's correspondence.
+* Now, these problems do not disturb me, because chatting assistant site have been made to transfer important and sensitive information.
+* When a manager and a lot of customers - can be confused whom to answer.
+* ... I supplement of the comments
 
-Pros:<b> 
-1. It works!
-2. Free Forever and for any number of managers
-3. No need extra applications only telegrams, which is for all popular platforms
-4. You can rewrite and stylized chat as you want.
-5. Telegram is very fast
-6. ... I supplement of the comments
+## Pros:<br> 
+* It works!
+* Free Forever and for any number of managers
+* No need extra applications only telegrams, which is for all popular platforms
+* You can rewrite and stylized chat as you want.
+* Telegram is very fast
+* ... I supplement of the comments
 
-What can be done: <br>
-1. Foolproof and work on security
-2. Smart distribution system communications between managers (now the bot sends a random message to the manager)
-3. Automatic responses from the bot when the manager was silent for a long time
-4. Add a name and a photo manager that is responsible chatting
-5. ... I supplement of the comments
+## What can be done: <br>
+* Foolproof and work on security
+* Smart distribution system communications between managers (now the bot sends a random message to the manager)
+* Automatic responses from the bot when the manager was silent for a long time
+* Add a name and a photo manager that is responsible chatting
+* ... I supplement of the comments
 
 
-In the plans: <br>
-1. Admin panel with statistics 
-2. Work through webhook 
+## In the plans:<br>
+* Admin panel with statistics 
+* Work through webhook 
 
 Reference:
 http://habrahabr.ru/post/264035/
