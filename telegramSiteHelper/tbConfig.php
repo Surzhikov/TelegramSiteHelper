@@ -1,10 +1,14 @@
 <?php
 
+header('Content-Type: text/html; charset=utf-8'); // кодировка UTF-8
+header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+mb_internal_encoding("UTF-8");
 
 // Корневая директория для TelegramSiteHelper
 // Root dir for TelegramSiteHelper
-// IN LINUX: something like this: /var/www/sitename/telegramSiteHelper
+// IN LINUX: something like this: /var/www/sitename/telegramSiteHelper 
 // IN Windows (XAMPP, OpenServer, etc) C:/xampp/mysite/telegramSiteHelper
+// CHECK, THERE IS NO SLASH "/" IN THE END!!!!!
 $tbRootDir="/var/www/mysite/telegramSiteHelper";
 
 // Пароль для авторизации менеджера через телеграм бота
