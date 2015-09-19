@@ -60,6 +60,7 @@ function getMsgs() {
                     if (lastMessageId != 0) {
                         $("#telegramSiteHelper_chatSound")[0].play();
                     }
+
                     $.each(answer.msgs, function(i, msg) {
                         var m = makeMsg(msg);
                         $("#telegramSiteHelper_lastMId").val(msg.msgId)
@@ -67,7 +68,12 @@ function getMsgs() {
                     });
 										refreshChatScroll();
                     
+                }else{
+                     if (lastMessageId == ""){
+                        $("#telegramSiteHelper_lastMId").val("0")
+                     }
                 }
+
             }
 						
                         console.log("OKEY "+answer.status);
@@ -78,6 +84,10 @@ function getMsgs() {
             return (true);
         } else if (answer.status == 'error') { // ЕСЛИ API возвратило status=error обрабатываем ошибки.
             console.log("FAIL "+answer.status);
+            if(answer.error=="bad_chHash"){
+                $.cookie("tbChatHash",null);
+                alert("Please reload page!")
+            }
             setTimeout(function() {
                 getMsgs();
             }, 1500);

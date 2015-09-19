@@ -6,10 +6,8 @@ mb_internal_encoding("UTF-8");
 
 // Корневая директория для TelegramSiteHelper
 // Root dir for TelegramSiteHelper
-// IN LINUX: something like this: /var/www/sitename/telegramSiteHelper 
-// IN Windows (XAMPP, OpenServer, etc) C:/xampp/mysite/telegramSiteHelper
-// CHECK, THERE IS NO SLASH "/" IN THE END!!!!!
-$tbRootDir="/var/www/mysite/telegramSiteHelper";
+// IN THIS VERSION OF TelegramSiteHelper you can write dirname(_FILE_) here...
+$tbRootDir=dirname(__FILE__);
 
 // Пароль для авторизации менеджера через телеграм бота
 // Password for manager auth (in Telegram bot), you must write some non-so-easy
@@ -17,7 +15,7 @@ $tbManagerPassword="123456";
 
 // API Token, который вы получили у @BotFather
 // API Token, you can get it from user @BotFather (in Telegram App)
-$tbAPIToken="";
+$tbAPIToken="125073790:AAGpYnCJ6k7qkjIVzD-s8mLIQlKgTPg78Dk";
 
 // Название языкового файла (в папке /localization)
 // Name of localization file (you can find it in /localization folder)

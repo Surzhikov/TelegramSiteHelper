@@ -16,7 +16,7 @@ if(!isset($params[$v])){echo  json_encode(array("status"=>"error", "error"=>"NEE
 //-----------------------------------------  API
 
 
-if($params['lastMessageId']==0){
+if($params['lastMessageId']==null){
 
 
 			require('tbDatabase.php');
@@ -27,6 +27,10 @@ if($params['lastMessageId']==0){
 			$a=$sth->fetch();
 			$chId=$a['chId'];
 			
+			if($chId==null){
+				echo json_encode(array("status"=>"error","error"=>"bad_chHash"));
+				exit();
+			}
 			
 			$sth=$db->prepare("SELECT msgId, msgTime, msgFrom, msgText FROM tbMessages WHERE msgChatId=:msgChatId AND msgId>:msgId ORDER BY msgTime");
 			$sth->execute(array(":msgChatId"=>$chId, ":msgId"=>$params['lastMessageId']));
