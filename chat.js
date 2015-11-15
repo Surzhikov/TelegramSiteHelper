@@ -4,7 +4,9 @@ $(function() {
         if (e.keyCode == 13) {
             msg = $("#telegramSiteHelper_chatTextBox").val();
             if (msg.length > 0) {
-                sendMsgs(msg)
+				if(window.whileSending != true){
+	                sendMsgs(msg)
+				}
             }
         }
     });
@@ -111,6 +113,7 @@ function getMsgs() {
 function sendMsgs(tbMessage) {
     var tbChatHash = $.cookie("tbChatHash");
     var params = {};
+	window.whileSending = true;
     params['tbMessage'] = tbMessage;
     params['tbChatHash'] = tbChatHash;
 
@@ -124,6 +127,7 @@ function sendMsgs(tbMessage) {
         timeout: 25000
     }).done(function(answer) {
 
+		window.whileSending = false;
 		console.log(answer);
         if (answer.status == 'ok') {
 		
@@ -164,6 +168,7 @@ function sendMsgs(tbMessage) {
         }
     }).fail(function(jqXHR, textStatus, errorThrown) {
 
+		window.whileSending = false; // 
 console.log(jqXHR);
         alert("Error during send message. Try again after page refresh! "+ textStatus);
     });
