@@ -1,6 +1,6 @@
 
-#We introduce a NEW <a href="https://github.com/Surzhikov/Telegram-Site-Helper-2.0">Telegram-Site-Helper 2.0</a>
-#Мы представляем НОВЫЙ <a href="https://github.com/Surzhikov/Telegram-Site-Helper-2.0">Telegram-Site-Helper 2.0</a>
+<h2>We introduce a NEW <a href="https://github.com/Surzhikov/Telegram-Site-Helper-2.0">Telegram-Site-Helper 2.0</a></h2>
+<h2>Мы представляем НОВЫЙ <a href="https://github.com/Surzhikov/Telegram-Site-Helper-2.0">Telegram-Site-Helper 2.0</a></h2>
 
 # TelegramSiteHelper
 Telegram Bot and chat to create WebSite Helper (PHP+JS(JQuery2)+HTML+CSS)<br>
