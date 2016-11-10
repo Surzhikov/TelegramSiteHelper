@@ -87,11 +87,5 @@ You must've Telegram Account. If you don't have make one using <a href="https://
 * Admin panel with statistics 
 * Work through webhook 
 
-Reference:
-http://habrahabr.ru/post/264035/ (language: russian)
-
-
-If you try everything, but it is not working - you can write me (<a href="https://telegram.me/surzhikov">https://telegram.me/surzhikov</a>).<br>
-Если вы все перепробывали, но все-равно ничего не работает, можете написать мне в телеграм, помогу чем смогу (<a href="https://telegram.me/surzhikov">https://telegram.me/surzhikov</a>).<br>
 <br>
 
